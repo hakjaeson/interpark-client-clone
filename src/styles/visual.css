@@ -1,0 +1,35 @@
+.visual {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  position: relative;
+  /* background-color: green; */
+}
+.visual-inner {
+  margin: 0 auto;
+  position: relative;
+  width: 1280px;
+  height: 345px;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.visual-slide {
+}
+.visual-slide-item {
+  position: relative;
+  width: 628px;
+}
+/* ff */
+.visual-slide-item a {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 13px;
+}
+.visual-slide-item a img {
+  display: block;
+  position: relative;
+  width: 100%;
+}
