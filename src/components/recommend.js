@@ -6,6 +6,7 @@ import "../styles/recommend.css";
 
 function Recommend() {
   const swiperRef = useRef();
+  // fetch("recommend.json").then().then().catch();
   return (
     <section className="recommend">
       <div className="recommend-inner">
