@@ -1,25 +1,61 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 import "../styles/common.css";
 import "../styles/ticket.css";
 
 function Ticket() {
   const swiperRef = useRef();
-  // fetch("ticket.json").then().then().catch();
+  const [htmlTag, setHtmlTag] = useState([]);
+
+  const getJsonData = () => {
+    // 외부데이터 연동하기 fetch 이용
+    fetch("ticket.json")
+      .then((response) => {
+        console.log("response:", response);
+        //자료가 불러들여졌을 때
+        return response.json();
+      })
+      .then((res) => {
+        console.log("result", res);
+        // 자료를 원하는대로 처리하겠다.
+        let arr = [];
+        for (let i = 0; i < res.total; i++) {
+          const item = res["ticket_" + (i + 1)];
+          arr[i] = item;
+        }
+        setHtmlTag(arr);
+      })
+      //error
+      .catch((error) => {
+        //error meg
+        console.log("error" + error);
+      });
+  };
+  // 타이머 만들 때
+  // 외부데이터 부를 때
+  // 태그참조
+  // window 참조
+  // window.addEventlistner("Srcoll")
+  // cleanup : 컴포넌트 화면에서 사라질 때 실행할 함수
+  // 컴포넌트가 화면에 보여질 때 실행할 내용 기재 장소
+  useEffect(() => {
+    // 외부 데이터 불러들이기
+    getJsonData();
+  }, []);
+
   return (
     <section className="ticket">
       <div className="ticket-inner">
-        {/* ticket-section-header-area */}
         <div className="ticket-header">
-          {/* ticket-header-title */}
           <h2 className="ticket-title">티켓 랭킹</h2>
-          {/* ticket-header-sub-title */}
+
           <span className="ticket-sub">오늘 뭐볼까? 지금HOT한 공연</span>
         </div>
-        {/* ticket-section-main-area */}
+
         <div className="ticket-content">
-          {/* ticket-section-main-category */}
           <div className="ticket-category">
             <ul className="ticket-list">
               <li>
@@ -38,47 +74,63 @@ function Ticket() {
               </li>
             </ul>
           </div>
+
           <Swiper
             slidesPerView={4}
             spaceBetween={24}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            modules={{ Navigation }}
+            navigation={{
+              nextEl: "ticket-slide-wrap .slide-next-bt",
+              prevEl: "ticket-slide-wrap .slide-prev-bt",
+            }}
             className="ticket-slide"
           >
-            <SwiperSlide>
-              <div className="ticket-slide-item">
-                <div className="tour-img-wrapper">
-                  <a href="#">
-                    <img
-                      src={process.env.PUBLIC_URL + "/images/t_1.png"}
-                      alt="#"
-                    />
-                    <span className="ticket-rank">#</span>
-                  </a>
-                </div>
-                <div className="ticket-info">
-                  <ul>
-                    <li>
-                      <span className="ticketing-title">#</span>
-                    </li>
-                    <li>
-                      <span className="ticket-place">#</span>
-                    </li>
-                    <li>
-                      <span className="ticket-date">#</span>
-                    </li>
-                    <li>
-                      <span className="ticket-status">#</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </SwiperSlide>
+            {htmlTag.map(function (item, index) {
+              return (
+                <SwiperSlide key={index}>
+                  {index === htmlTag.length - 1 ? (
+                    <a href={item.url}>바로가기</a>
+                  ) : (
+                    <div className="ticket-slide-item">
+                      <a href={item.url}>
+                        <div className="tour-img-wrapper">
+                          <img src={item.file} alt={item.url} />
+                          <span className="ticket-rank">{item.rank}</span>
+                        </div>
+
+                        <div className="ticket-info">
+                          <ul>
+                            <li>
+                              <span className="ticketing-title">
+                                {item.title}
+                              </span>
+                            </li>
+                            <li>
+                              <span className="ticket-place">{item.place}</span>
+                            </li>
+                            <li>
+                              <span className="ticket-date">{item.date}</span>
+                            </li>
+                            <li>
+                              <span className="ticket-status">
+                                {item.status}
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </a>
+                    </div>
+                  )}
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
-          {/* ticket Navigation */}
+
           <button
-            className="slide-next-bt"
+            className="slide-prev-bt"
             onClick={() => {
               swiperRef.current.slidePrev();
             }}
@@ -86,19 +138,18 @@ function Ticket() {
           <button
             className="slide-next-bt"
             onClick={() => {
-              swiperRef.current.slidePrev();
+              swiperRef.current.slideNext();
             }}
           ></button>
         </div>
       </div>
-      {/* tour-footer-area */}
+
       <div className="content-footer">
         <a href="#" className="cate-more-bt">
-          <span>티켓 홈 바로가기</span>
+          <span>쇼핑 홈 바로가기</span>
         </a>
       </div>
     </section>
   );
 }
-
 export default Ticket;
