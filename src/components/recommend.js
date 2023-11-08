@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "../styles/common.css";
 import "../styles/recommend.css";
 import axios from "axios";
+// import { Btcate, BtSlideNext, BtSlidePrev } from "../components/ui/buttons";
 
 function Recommend() {
   const swiperRef = useRef();
@@ -32,37 +33,6 @@ function Recommend() {
       });
   };
 
-  // 외부데이터 연동하기 fetch 이용
-  // const getJsonData = () => {
-  //   fetch("recommend.json")
-  //     .then((response) => {
-  //       console.log("response:", response);
-  //       //자료가 불러들여졌을 때
-  //       return response.json();
-  //     })
-  //     .then((res) => {
-  //       console.log("result", res);
-  //       // 자료를 원하는대로 처리하겠다.
-  //       let arr = [];
-  //       for (let i = 0; i < res.total; i++) {
-  //         const obj = res["recommend_" + (i + 1)];
-  //         arr[i] = obj;
-  //       }
-  //       setHtmlTag(arr);
-  //     })
-  //     //error
-  //     .catch((error) => {
-  //       //error meg
-  //       console.log("error" + error);
-  //     });
-  // };
-  // 타이머 만들 때
-  // 외부데이터 부를 때
-  // 태그참조
-  // window 참조
-  // window.addEventlistner("Srcoll")
-  // cleanup : 컴포넌트 화면에서 사라질 때 실행할 함수
-  // 컴포넌트가 화면에 보여질 때 실행할 내용 기재 장소
   useEffect(() => {
     // 외부 데이터 불러들이기
     // getJsonData();
