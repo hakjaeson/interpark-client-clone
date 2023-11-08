@@ -67,6 +67,9 @@
   position: relative;
 }
 
+.ticket-img-wrapper {
+  position: relative;
+}
 .ticket-img {
   display: block;
   overflow: hidden;
@@ -82,9 +85,6 @@
   height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-}
-.ticket-img-wrapper {
-  position: relative;
 }
 .ticket-rank {
   position: absolute;

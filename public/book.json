@@ -3,27 +3,37 @@
   "book_1": {
     "file": "images/b_1.jpeg",
     "url": "a.html",
-    "book_title":"앙기모쮜",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
     "book_price": "10000"
   },
   "book_2": {
-    "file": "images/v2.jpg",
-    "url": "b.html"
+    "file": "images/b_1.jpeg",
+    "url": "a.html",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
+    "book_price": "10000"
   },
   "book_3": {
-    "file": "images/v3.jpg",
-    "url": "c.html"
+    "file": "images/b_1.jpeg",
+    "url": "a.html",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
+    "book_price": "10000"
   },
   "book_4": {
-    "file": "images/v4.jpg",
-    "url": "d.html"
+    "file": "images/b_1.jpeg",
+    "url": "a.html",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
+    "book_price": "10000"
   },
   "book_5": {
-    "file": "images/v5.jpg",
-    "url": "e.html"
+    "file": "images/b_1.jpeg",
+    "url": "a.html",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
+    "book_price": "10000"
   },
   "book_6": {
-    "file": "images/v6.png",
-    "url": "f.html"
+    "file": "images/b_1.jpeg",
+    "url": "a.html",
+    "book_title": "코스모폴리탄 11월호 - 표지 3종 C형 수지 / 부록없음",
+    "book_price": "10000"
   }
 }

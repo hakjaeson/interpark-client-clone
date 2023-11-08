@@ -8,10 +8,11 @@
   position: relative;
   width: 1280px;
 }
+/* book header CSS */
 .book-header {
   position: relative;
 }
-.book-header-title-txt {
+.book-title {
   margin: 10px;
   position: relative;
   font-size: 2.8rem;
@@ -19,14 +20,15 @@
   color: #000;
   text-align: center;
 }
-.book-header-sub-txt {
+.book-sub {
   display: block;
   position: relative;
   font-size: 1.8rem;
   color: #a7a9a7;
   text-align: center;
 }
-.book-main {
+/* book main CSS */
+.book-content {
   padding: 25px 0;
   position: relative;
 }
@@ -34,6 +36,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  margin-bottom: 30px;
 }
 .book-list {
   display: flex;
@@ -46,77 +49,57 @@
   display: flex;
   position: relative;
 }
-
+/* book content swiper */
 .swiper {
   width: 100%;
   height: 100%;
 }
 .book-slide-wrapper {
-  margin-top: 30px;
 }
+
 .book-slide-item {
+  overflow: hidden;
   position: relative;
-  width: 355px;
+  height: 500px;
 }
-.book-slide-item a {
+.book-slide-item img {
+  position: relative;
+}
+.kimori {
+  border: 1px solid #e8e8e8;
+  /* border-radius: 15px; */
   display: block;
   overflow: hidden;
   position: relative;
   width: 100%;
-  border-radius: 13px;
+  height: 400px;
 }
-.book-slide-item a img {
-  display: block;
-  position: relative;
+.kimori img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
 }
-.book-slide-prev::before {
-  content: "";
-  position: relative;
-  margin: 0 auto;
-  display: block;
-  width: 10px;
-  height: 18px;
-  background: url("../images/slider_arrow.svg") no-repeat center;
-  transform: rotateY(180deg);
+.book-info {
+  width: 100%;
+  /* padding: 1rem; */
+  text-align: center;
 }
-.book-slide-next::before {
-  content: "";
-  position: relative;
-  margin: 0 auto;
-  display: block;
-  width: 10px;
-  height: 18px;
-  background: url("../images/slider_arrow.svg") no-repeat center;
-  /* transform: rotateY(180deg); */
+.book-title-2 {
+  font-size: 1.5rem;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
-.book-slide-prev {
-  transform: translateX(-50%) translateY(-50%);
-  border: 1px solid #c9c9c9;
-  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.13);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  z-index: 2;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  border-radius: 50%;
-}
-.book-slide-next {
-  transform: translateX(50%) translateY(-50%);
-  border: 1px solid #c9c9c9;
-  box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.13);
-  position: absolute;
-  top: 50%;
-  right: 0;
-  z-index: 2;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  border-radius: 50%;
+.book-price {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .book-footer {

@@ -71,12 +71,6 @@ function Live() {
             className="live-slide"
           >
             {htmlTag.map(function (item, index) {
-              const discount = item.sub_discount;
-              const disValue = discount !== 0 ? discount + "%" : "";
-              const dateline = item.date;
-              const timeline = item.time;
-              const dateValue = dateline !== 0 ? dateline : "";
-              const timeValue = timeline !== 0 ? timeline : "";
               return (
                 <SwiperSlide key={index}>
                   {index === htmlTag.length - 1 ? (
@@ -95,8 +89,12 @@ function Live() {
                           </div>
 
                           <div className="live-d-day">
-                            <div className="live-date">{dateValue}</div>
-                            <div className="live-time">{timeValue}</div>
+                            <div className="live-date">
+                              {item.date !== 0 ? item.date : ""}
+                            </div>
+                            <div className="live-time">
+                              {item.time !== 0 ? item.time : ""}
+                            </div>
                           </div>
                         </div>
                       </a>
@@ -110,15 +108,17 @@ function Live() {
                             <ul>
                               <li>
                                 <span className="live-sub-title">
-                                  ${item.sub_title}
+                                  {item.sub_title}
                                 </span>
                               </li>
                               <li>
                                 <span className="live-discount">
-                                  ${disValue}
+                                  {item.sub_discount !== 0
+                                    ? item.sub_discount + "%"
+                                    : ""}
                                 </span>
                                 <span className="live-sub-price">
-                                  ${item.sub_price}
+                                  {item.sub_price}
                                 </span>
                               </li>
                             </ul>

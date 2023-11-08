@@ -4,6 +4,7 @@ import "swiper/css";
 import "../styles/visual.css";
 import "../styles/common.css";
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 function Visual() {
   // js 코드 자리
@@ -11,20 +12,31 @@ function Visual() {
   // 1. swiper 슬라이드 태그를 참조한다.
   const swiperRef = useRef();
 
-  // 외부 데이터 연동 ( fetch 활용)
-
-  const fetchGetData = () => {
-    fetch("visual.json")
-      .then((res) => res.json())
-      .then((result) => {
-        // console.log(result);
-        // 자료를 출력하자.
-        makeVisualSlide(result);
+  const axiosGetData = function () {
+    axios
+      .get("visual.json")
+      .then(function (res) {
+        console.log(res.data);
+        makeVisualSlide(res.data);
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log(error);
       });
   };
+
+  // 외부 데이터 연동 ( fetch 활용)
+  //   const fetchGetData = () => {
+  //     fetch("visual.json")
+  //       .then((res) => res.json())
+  //       .then((result) => {
+  //         // console.log(result);
+  //         // 자료를 출력하자.
+  //         makeVisualSlide(result);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   };
   // visual 슬라이드 내용 채우는 기능
   // 리액트용 변수 : 컴포넌트에 출력할 JSX
   //       일반변수 말고  리액트용 변수를 state 라고 합니다.
@@ -67,7 +79,8 @@ function Visual() {
   useEffect(() => {
     // 랜더링 될때
     //  visual.json 데이터 불러들이기 기능실행
-    fetchGetData();
+    // fetchGetData();
+    axiosGetData();
 
     return () => {
       // 삭제될때 (Clean Up 함수)

@@ -38,6 +38,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  margin-bottom: 30px;
 }
 .recommend-list {
   display: flex;

@@ -5,6 +5,7 @@ import Visual from "./components/visual";
 import Ticket from "./components/ticket";
 import Live from "./components/live";
 import Book from "./components/book";
+import Event from "./components/event";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
       <Ticket />
       <Live />
       <Book />
+      <Event />
+      <footer />
 
       {/* <!-- footer area --> */}
       <footer className="footer"></footer>

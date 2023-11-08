@@ -5,22 +5,21 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "../styles/common.css";
 import "../styles/recommend.css";
+import axios from "axios";
 
 function Recommend() {
   const swiperRef = useRef();
+
   const [htmlTag, setHtmlTag] = useState([]);
 
-  const getJsonData = () => {
-    // 외부데이터 연동하기 fetch 이용
-    fetch("recommend.json")
-      .then((response) => {
-        console.log("response:", response);
-        //자료가 불러들여졌을 때
-        return response.json();
+  const axiosGetData = () => {
+    axios
+      .get("recommend.json")
+      .then((res) => {
+        console.log(res.data);
+        return res.data;
       })
       .then((res) => {
-        console.log("result", res);
-        // 자료를 원하는대로 처리하겠다.
         let arr = [];
         for (let i = 0; i < res.total; i++) {
           const obj = res["recommend_" + (i + 1)];
@@ -28,12 +27,35 @@ function Recommend() {
         }
         setHtmlTag(arr);
       })
-      //error
-      .catch((error) => {
-        //error meg
-        console.log("error" + error);
+      .catch(function (error) {
+        console.log(error);
       });
   };
+
+  // 외부데이터 연동하기 fetch 이용
+  // const getJsonData = () => {
+  //   fetch("recommend.json")
+  //     .then((response) => {
+  //       console.log("response:", response);
+  //       //자료가 불러들여졌을 때
+  //       return response.json();
+  //     })
+  //     .then((res) => {
+  //       console.log("result", res);
+  //       // 자료를 원하는대로 처리하겠다.
+  //       let arr = [];
+  //       for (let i = 0; i < res.total; i++) {
+  //         const obj = res["recommend_" + (i + 1)];
+  //         arr[i] = obj;
+  //       }
+  //       setHtmlTag(arr);
+  //     })
+  //     //error
+  //     .catch((error) => {
+  //       //error meg
+  //       console.log("error" + error);
+  //     });
+  // };
   // 타이머 만들 때
   // 외부데이터 부를 때
   // 태그참조
@@ -43,7 +65,8 @@ function Recommend() {
   // 컴포넌트가 화면에 보여질 때 실행할 내용 기재 장소
   useEffect(() => {
     // 외부 데이터 불러들이기
-    getJsonData();
+    // getJsonData();
+    axiosGetData();
   }, []);
 
   return (
@@ -102,21 +125,24 @@ function Recommend() {
                     <div className="recommend-slide-item">
                       <a href={item.url} className="recommend-link">
                         <div class="recommend-img">
-                          <img
-                            src={process.env.PUBLIC_URL + "/images/shoes.jpeg"}
-                            alt="#"
-                          />
+                          <img src={item.file} alt="#" />
                         </div>
                         <div class="recommend-info">
                           <ul class="recommend-good-list">
                             <li>
                               <span class="recommend-good-info-price">
-                                <b>#</b>
-                                <em>#</em>원
+                                <b>
+                                  {item.discount !== 0
+                                    ? item.discount + "%"
+                                    : ""}
+                                </b>
+                                <em>{item.price}</em>원
                               </span>
                             </li>
                             <li>
-                              <p class="recommend-good-info-desc">#</p>
+                              <p class="recommend-good-info-desc">
+                                {item.desc}
+                              </p>
                             </li>
                           </ul>
                         </div>
