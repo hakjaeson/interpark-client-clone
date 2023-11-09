@@ -13,7 +13,8 @@
     "sub_title": "새로운 여행, 컨셉 트립 기획전",
     "sub_discount": 50,
     "sub_price": 55000,
-    "sub_url": "a.html"
+    "sub_url": "a.html",
+    "sub_status": 1
   },
   "live_2": {
     "file": "../images/l_1.jpg",
@@ -28,7 +29,8 @@
     "sub_title": "dummy_sub_title",
     "sub_discount": 0,
     "sub_price": 55000,
-    "sub_url": "a.html"
+    "sub_url": "a.html",
+    "sub_status": 0
   },
   "live_3": {
     "file": "images/l_1.jpg",
@@ -43,7 +45,8 @@
     "sub_title": "새로운 여행, 컨셉 트립 기획전",
     "sub_discount": "50",
     "sub_price": "55000",
-    "sub_url": "a.html"
+    "sub_url": "a.html",
+    "sub_status": "1"
   },
   "live_4": {
     "file": "images/l_1.jpg",

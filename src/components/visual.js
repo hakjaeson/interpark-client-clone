@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { BtSlideNext, BtSlidePrev } from "../components/ui/buttons";
+import { Slide_next_bt, Slide_prev_bt } from "../styled/common";
 import "../styles/common.css";
 import "../styles/visual.css";
-// import { InnerArea, SectionArea, SlideItem } from "./layout/layout";
+import styled from "@emotion/styled";
 
 function Visual() {
   const swiperRef = useRef();
@@ -31,6 +31,8 @@ function Visual() {
       })
       .catch(function (error) {
         console.log(error);
+        // const dodj = {};
+        // makeViual
       });
   };
 
@@ -75,19 +77,18 @@ function Visual() {
             );
           })}
         </Swiper>
-        <button
-          className="slide-prev-bt"
+
+        <Slide_prev_bt
           onClick={() => {
             swiperRef.current.slidePrev();
           }}
-        ></button>
+        ></Slide_prev_bt>
 
-        <button
-          className="slide-next-bt"
+        <Slide_next_bt
           onClick={() => {
             swiperRef.current.slideNext();
           }}
-        ></button>
+        ></Slide_next_bt>
       </div>
     </section>
   );

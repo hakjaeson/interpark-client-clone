@@ -98,6 +98,7 @@ function Live() {
                           </div>
                         </div>
                       </a>
+
                       <a href={item.sub_url}>
                         <div className="live-sub-container">
                           <div className="live-sub-img">

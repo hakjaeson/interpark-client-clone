@@ -2,11 +2,8 @@ import "../styles/header.css";
 export default function Header() {
   return (
     <header class="header">
-      {/* <!-- header inner --> */}
       <div class="header-inner">
-        {/* <!-- searchBar + memberMenu --> */}
         <div class="header-top">
-          {/* <!-- logo + search form area --> */}
           <div class="header-left">
             <a href="index.html" class="logo"></a>
             {/* <!-- search area --> */}
